@@ -8,13 +8,15 @@ const Login = props => {
 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [msgType, setMsgType] = useState()
 
     function login() {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(result => {
-                alert('User logged in')
+                setMsgType('success')
             }).catch(err => {
-                alert(err)
+                console.error(err)
+                setMsgType('error')
             })
     }
 
@@ -38,9 +40,10 @@ const Login = props => {
                     className="btn btn-lg btn-block btn-login" type="button">Sign in</button>
 
                 <div className='msg-login text-white text-center my-5'>
-                    <span><strong>Yeah!</strong> You're logged in</span>
-                    <br />
-                    <span><strong>Ops!</strong> User or password invalid</span>
+
+                    {msgType === 'success' && <span><strong>Yeah!</strong> You're logged in</span>}
+                    {msgType === 'error' && <span><strong>Ops!</strong> User or password invalid</span>}
+
                 </div>
 
                 <div className='login-options mt-5 text-center'>
