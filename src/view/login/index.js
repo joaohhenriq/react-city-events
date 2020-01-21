@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import './login.css'
 import 'firebase/auth'
@@ -49,7 +50,7 @@ const Login = props => {
                 <div className='login-options mt-5 text-center'>
                     <a href='#' className="mx-2">Forgot password</a>
                     <span className='text-white'>&#9964;</span>
-                    <a href='#' className="mx-2">Register user</a>
+                    <Link to='register' className="mx-2">Register user</Link>
                 </div>
             </form>
         </div>
