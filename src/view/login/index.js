@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
 
 import './login.css'
 import 'firebase/auth'
@@ -11,10 +12,15 @@ const Login = props => {
     const [password, setPassword] = useState()
     const [msgType, setMsgType] = useState()
 
+    const dispatch = useDispatch()
+
     function login() {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then(result => {
                 setMsgType('success')
+                setTimeout(() => {
+                    dispatch({ type: 'LOG_IN', userEmail: email })
+                }, 2000)
             }).catch(err => {
                 console.error(err)
                 setMsgType('error')
@@ -23,6 +29,12 @@ const Login = props => {
 
     return (
         <div className='login-content d-flex align-items-center'>
+
+            {
+                useSelector(state => state.userLogged)
+                    ? <Redirect to='/' />
+                    : null
+            }
             <form className="form-signin mx-auto">
                 <div className="text-center mb-4">
                     <img className="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
