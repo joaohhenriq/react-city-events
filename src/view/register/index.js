@@ -53,7 +53,7 @@ const Register = props => {
 
                     {
                         loading
-                            ? <div class="spinner-border text-info" role="status"><span class="sr-only">Loading...</span></div>
+                            ? <div className="spinner-border text-info" role="status"><span className="sr-only">Loading...</span></div>
                             : <button
                                 onClick={register}
                                 type='button' className='btn btn-lg btn-block mt-3 btn-register'>Register</button>

@@ -37,8 +37,8 @@ const Login = props => {
             }
             <form className="form-signin mx-auto">
                 <div className="text-center mb-4">
-                    <img className="mb-4" src="/docs/4.4/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72" />
-                    <h1 className="h3 mb-3 font-weight-normal text-white font-weight-bold">Login</h1>
+                    <i className="fas fa-city text-white fa-7x mb-5" ></i>
+                    <h1 className="h3 mb-2 font-weight-normal text-white font-weight-bold">Login</h1>
                 </div>
 
                 <input
@@ -60,9 +60,9 @@ const Login = props => {
                 </div>
 
                 <div className='login-options mt-5 text-center'>
-                    <a href='#' className="mx-2">Forgot password</a>
+                    <Link to='forgotpassword' className="mx-2">Forgot password</Link>
                     <span className='text-white'>&#9964;</span>
-                    <Link to='register' className="mx-2">Register user</Link>
+                    <Link to='register' className="ml-2 mr-4">Register user</Link>
                 </div>
             </form>
         </div>
