@@ -25,7 +25,7 @@ const Navbar = props => {
                         useSelector(state => state.userLogged)
                             ? <>
                                 <li className="nav-item active">
-                                    <Link className="nav-link" to="">Create Event</Link>
+                                    <Link className="nav-link" to="createevent">Create Event</Link>
                                 </li>
                                 <li className="nav-item active">
                                     <Link className="nav-link" to="">My Events</Link>
